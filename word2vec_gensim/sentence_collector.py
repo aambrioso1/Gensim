@@ -4,7 +4,8 @@
 
 https://stackoverflow.com/questions/3549075/regex-to-find-all-sentences-of-text, 
 
-The pater attern for finding a sentence: Upercase, then anything that is not in (;.!?), then one of (;.!?).
+The pattern for finding a sentence: uppercase letter, then anything that is not in (;.!?),
+and ending with one of (;.!?).
 
 """
 
@@ -38,7 +39,8 @@ def txt_to_df(url):
 	A url in string form linked to text (code test on urls from Project Gutenberg)
 
 	Returns:
-	A panda dataframe containing all the sentences in the text.
+	A panda dataframe containing all the sentences in the text in one column labeled
+	"sentences.""
 
 	"""
 	# Get the information form the URL and turn it into text.
@@ -53,12 +55,14 @@ def txt_to_df(url):
 	return df
 
 """
-# Two ways to build the dataframe I need are discussed here:  
-# https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.append.html
+Two ways to build the dataframe I need are discussed here:  
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.append.html
+One way to build the df:
 df = pd.DataFrame(columns=['sentences'])
 for i, item in enumerate(sentences):	 
 	df = df.append({'sentences': item}, ignore_index=True)
 	if i < 30: print(item,'\n')
+I implemented the other way in the code
 """
 
 # print(txt_to_df(URL)[:30])
